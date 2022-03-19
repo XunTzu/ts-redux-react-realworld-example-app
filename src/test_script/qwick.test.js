@@ -5,11 +5,30 @@
 
 // Setup and constants
 import {By, Builder} from "selenium-webdriver";
-// const { By } = webdriver;
 
-let userName = 'Yata';
+// Quick and dirty name generator for testing purposes while writing this.
+// In a more mature setup this would be refined a bit and could be used for performance,
+// load, and with more refinement international, character set, and boundary equivalance.
+// Be more effecient to use faker.js, mocker, etc...
+
+function generateNum(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+function mapName () {
+    let randomName = '';
+    for(let i=0; i < generateNum(3, 12); i++) {
+        const charNum = generateNum(1, 27);
+        randomName += String.fromCharCode(97 + charNum);
+    }
+    return randomName;
+}
+
+let userName = mapName();
 let userPw = 'secure';
-let userEmail = 'yata@testmail.com';
+let userEmail = userName + '@testmail.com';
 
 // Open page, start directly with register
 
