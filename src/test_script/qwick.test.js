@@ -5,8 +5,6 @@
 
 // Setup and constants
 import {By, Builder, until} from "selenium-webdriver";
-import 'jest';
-// const { test, expect } = pkg;
 
 //const url = 'http://localhost:3000';
 const regUrl = 'http://localhost:3000/#/register';
@@ -100,9 +98,12 @@ let article = 'I test therefore you work';
     browser.wait(until.elementIsVisible(postEl))
     const postText = await postEl.getText();
 
-    // eslint-disable-next-line no-console
-    console.log('User post added successfully: ', postText);
-    
     
 })();
+it("Shows user created successfully", () => {
+    expect(userText).toContain(userName)
+});
+it("tests user post created successfully", () => {
+    expect(postText).toContain(userName)
+});
 
