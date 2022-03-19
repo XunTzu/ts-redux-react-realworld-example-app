@@ -1,6 +1,7 @@
 {
   "name": "ts-redux-react-realworld-example-app",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@hqoss/monads": "^0.5.0",
